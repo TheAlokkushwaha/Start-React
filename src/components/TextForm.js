@@ -5,27 +5,32 @@ export default function TextForm(props) {
   const handelUpClick = ()=>{
     let newText = text.toUpperCase();
     setText(newText)
+    props.showAlert("Converted to uppercase!", "success");
   }
 
   const handelLoClick = ()=>{
     let newText = text.toLowerCase();
     setText(newText)
+    props.showAlert("Converted to lowercase!", "success");
   }
 
   const handelCapitalizedClick = ()=>{
     let newText = text.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
     setText(newText)
+    props.showAlert("Converted to capitalizes form!", "success");
   }
 
   const handelClearClick = ()=>{
     let newText = '';
     setText(newText)
+    props.showAlert("Text Cleared!", "success");
   }
 
   const handelCopy = () => {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to Clipboard!", "success");
   }
 
   const handelOnChange = (event) =>{
